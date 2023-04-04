@@ -12,18 +12,18 @@ class ArrayInspectorTest {
 
     private static Stream<Arguments> provideParametersForFindBiggestDifference() {
         return Stream.of(
-                Arguments.of(new int[]{1, 5, 7}, 6),
-                Arguments.of(new int[]{1, 1}, 0),
-                Arguments.of(new int[]{-1, -100}, 99),
-                Arguments.of(new int[]{100, -7}, 107),
-                Arguments.of(new int[]{0, 999999999}, 999999999),
-                Arguments.of(new int[]{1, -95, 33, 8888, 94, -4}, 8983)
+                Arguments.of(6, new int[]{1, 5, 7}),
+                Arguments.of(0, new int[]{1, 1}),
+                Arguments.of(99, new int[]{-1, -100}),
+                Arguments.of(107, new int[]{100, -7}),
+                Arguments.of(999999999, new int[]{0, 999999999}),
+                Arguments.of(8983, new int[]{1, -95, 33, 8888, 94, -4})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideParametersForFindBiggestDifference")
-    void findBiggestDifference(int[] input, int expected) {
+    void findBiggestDifference(int expected, int[] input) {
         int actual = ArrayInspector.findBiggestDifference(input);
         assertEquals(expected, actual);
     }
