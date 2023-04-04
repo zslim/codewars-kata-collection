@@ -14,8 +14,11 @@ class CalculatorTest {
             "1179, 723, 456",  // equal lengths with outer overflow
             "1686, 1230, 456",  // unequal lengths
             "1241, 1234, 7",  // unequal lengths with overflow
+            "100, 99, 1",  // unequal lengths with outer overflow
             "1, 1, ''",  // empty string
-            "37, 034, 0003"  // leading zeros
+            "37, 034, 0003",  // leading zeros
+            "3775730117344923358823023, 3762365737032555640442820, 13364380312367718380203",
+
     })
     void testSumStringNumbers(String expected, String firstNumber, String secondNumber) {
         String actual = Calculator.sumStringNumbers(firstNumber, secondNumber);

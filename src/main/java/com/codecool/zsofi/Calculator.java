@@ -21,7 +21,7 @@ public class Calculator {
             int digitA = getDigit(digitsA);
             int digitB = getDigit(digitsB);
             int sum = digitA + digitB + overflow;
-            if (sum > numeralSystemBase) {
+            if (sum >= numeralSystemBase) {
                 resultDigit = sum % numeralSystemBase;
                 overflow = sum / numeralSystemBase;
             } else {
