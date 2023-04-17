@@ -27,4 +27,21 @@ class ArrayInspectorTest {
         int actual = ArrayInspector.findBiggestDifference(input);
         assertEquals(expected, actual);
     }
+
+    private static Stream<Arguments> provideParametersForFindDifferentNumber() {
+        return Stream.of(
+                Arguments.of(0, new double[]{1, 0, 1}),
+                Arguments.of(1, new double[]{1, 0, 0}),
+                Arguments.of(-1, new double[]{0, 0, -1}),
+                Arguments.of(-1, new double[]{0.1, 0.1, -1}),
+                Arguments.of(1, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideParametersForFindDifferentNumber")
+    public void findDifferentNumber(double expected, double[] input) {
+        double actual = ArrayInspector.findDifferentNumber(input);
+        assertEquals(expected, actual);
+    }
 }
