@@ -35,7 +35,7 @@ class ArrayInspectorTest {
                 Arguments.of(-1, new double[]{0, 0, -1}),
                 Arguments.of(-1, new double[]{0.1, 0.1, -1}),
                 Arguments.of(1, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1})
-        );
+        );  // TODO: generate super long input array
     }
 
     @ParameterizedTest

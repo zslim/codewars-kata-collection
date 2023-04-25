@@ -3,7 +3,7 @@ package com.codecool.zsofi;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArrayInspector {
+public class ArrayInspector {  // TODO: get rid of static things
     public static int findBiggestDifference(int[] numbers) {
         int minimum = numbers[0];
         int maximum = numbers[0];
@@ -20,34 +20,20 @@ public class ArrayInspector {
     }
 
     public static double findDifferentNumber(double[] numbers) {
-        Map<Double, Integer> counter = new HashMap<>();
-        for (double number : numbers) {
-            if (!counter.containsKey(number)) {
-                counter.put(number, 1);
-            } else {
-                counter.put(number, counter.get(number) + 1);
-            }
-            if (anyRepetitions(counter)) {
-                break;
-            }
+        double repeatedNumber;
+        if (numbers[0] == numbers[1] || numbers[0] == numbers[2]) {
+            repeatedNumber = numbers[0];
+        } else {
+            repeatedNumber = numbers[1];
         }
-        double result = numbers[0];
-        for (Map.Entry<Double, Integer> entry : counter.entrySet()) {
-            if (entry.getValue() == 1) {
-                result = entry.getKey();
+        Double result = null;
+        int index = 0;
+        while (result == null) {
+            if (numbers[index] != repeatedNumber) {
+                return numbers[index];
             }
+            index++;
         }
-        return result;
-    }
-
-    private static boolean anyRepetitions(Map<Double, Integer> counter) {
-        boolean twoEntries = counter.entrySet().size() > 1;
-        boolean repetitionFound = false;
-        for (Map.Entry<Double, Integer> entry: counter.entrySet()) {
-            if (entry.getValue() > 1) {
-                repetitionFound = true;
-            }
-        }
-        return twoEntries && repetitionFound;
+        throw new IllegalStateException();
     }
 }
